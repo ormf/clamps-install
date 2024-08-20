@@ -375,23 +375,6 @@
   (let ((qlqs-cmucl:*gc-verbose* nil))
     (call-next-method)))
 
-(defun add-to-init-file2 (&optional implementation-or-file)
-  "Add forms to the Lisp implementation's init file that will load
-quicklisp at CL startup."
-  (let ((init-file (ql-impl-util::suitable-lisp-init-file implementation-or-file)))
-    (unless init-file
-      (error "Don't know how to add to init file for your implementation."))
-    (setf init-file (merge-pathnames init-file (user-homedir-pathname)))
-    (format *query-io* "~&I will append the following lines to ~S:~%"
-            init-file)
-    (ql-impl-util::write-init-forms *query-io* :indentation 2)
-    (with-open-file (stream init-file
-                            :direction :output
-                            :if-does-not-exist :create
-                            :if-exists :append)
-      (ql-impl-util::write-init-forms stream))
-    init-file))
-
 ;;;
 ;;; Low-level networking implementations
 ;;;
@@ -1776,8 +1759,8 @@ the indexes in the header accordingly."
 ;;; (write-string *after-load-message*)
 
 
-
+(setf ql-util::*do-not-prompt* t)
 (quicklisp-quickstart:install)
-(ql:add-to-init-file2)
+(ql:add-to-init-file)
 (sb-ext:exit)
 ;;; End of quicklisp.lisp

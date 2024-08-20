@@ -8,7 +8,7 @@
 (setq url-http-attempt-keepalives nil)
 
 (defvar clamps-packages
-  '(rainbow-delimiters paredit company company-fuzzy eldoc wdired lilypond-mode
+  '(rainbow-delimiters paredit company company-fuzzy eldoc wdired
                        magit sly-repl-ansi-color sly-autoload sly-quicklisp
                        sly-named-readtables sly-macrostep)
   "A list of packages to ensure are installed at launch.")

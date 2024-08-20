@@ -35,11 +35,8 @@
      
 ** Fresh install
 
-   This installation method installs everything necessary to run
-   clamps in Emacs.
-
-   The automated process explained in [[Preparation]] will install the
-   following:
+   This installation method explained below installs everything
+   necessary to run clamps in Emacs:
 
    - Emacs Configuration
 

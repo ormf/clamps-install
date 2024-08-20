@@ -152,7 +152,7 @@
      #+END_SRC
 
      If that worked as well, use the following command to play a Flute
-     Middle C using the outputs of Jack.
+     Middle C for 1 second using the outputs of Jack.
 
      #+BEGIN_SRC lisp
        cl-user> (output (new sfz))

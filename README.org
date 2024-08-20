@@ -34,6 +34,7 @@
    - SBCL
      
 ** Fresh install
+
    This installation method installs everything necessary to run
    clamps in Emacs. It will install the following things:
 
@@ -43,7 +44,7 @@
 
      - =$HOME/.emacs.d/init.el=
 
-     - =$HOME/init.el=
+     - =$HOME/.emacs.d/custom/=
 
 
      =$HOME/init.el= the initialization file of emacs, creates the

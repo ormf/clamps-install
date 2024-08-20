@@ -14,11 +14,11 @@
   "A list of packages to ensure are installed at launch.")
 
 (defun clamps-packages-installed-p ()
-  (loop for p in prelude-packages
+  (loop for p in clamps-packages
         when (not (package-installed-p p)) do (return nil)
         finally (return t)))
 
-(unless (prelude-packages-installed-p)
+(unless (clamps-packages-installed-p)
   ;; check for new packages (package versions)
   (message "%s" "Emacs is now refreshing its package database for Clamps...")
   (package-refresh-contents)

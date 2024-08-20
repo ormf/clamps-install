@@ -118,14 +118,13 @@
     To install the Inkscape extension for integration with clamps,
     issue the following additional commands in a terminal:
     
-    - Open a terminal and issue
-      #+BEGIN_SRC sh
-        cd /tmp/clamps-install
-        cp inkscape-plugin/* $HOME/.config/inkscape/extensions
-      #+END_SRC
+    #+BEGIN_SRC sh
+      cd /tmp/clamps-install
+      cp inkscape-plugin/* $HOME/.config/inkscape/extensions
+    #+END_SRC
 
-      After a restart of Inkscape, there should be an entry called
-      "Play Selection" in the "Extensions" Menu of Inkscape.
+    After a restart of Inkscape, there should be an entry called "Play
+    Selection" in the "Extensions" Menu of Inkscape.
 
 *** Testing the Installation
 

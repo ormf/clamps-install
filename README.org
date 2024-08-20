@@ -94,14 +94,18 @@
     If you are sure, the files and folders can be removed safely, you
     can explicitely remove them with the command
 
+    #+BEGIN_SRC sh
       =sh clean.sh=
+    #+END_SRC
 
     Be aware that this command silently and irrevocably removes all
     files and folders mentioned in [[Fresh install]] without warning.
 
     - The fresh installation is done with the command
 
-      =sh clamps-install.sh=
+      #+BEGIN_SRC sh
+        =sh clamps-install.sh=
+      #+END_SRC
 
       This will take a couple of minutes.
 

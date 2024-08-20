@@ -22,13 +22,36 @@
 
 * Linux Installation
 ** Dependencies
-    Please download the following programs using the package manager
-    of your Linux Distribution.
-    - Gnu Emacs
-    - LilyPond (optional)
-    - sbcl
-    - git
-      
+   Please download the following programs using the package manager
+   of your Linux Distribution.
+
+   - Gnu Emacs
+
+   - LilyPond (optional)
+
+   - Jack
+
+   - SBCL
+
+   - Quicklisp
+     
+** Dependencies
+
+   - Incudine
+
+     Used for sample accurate scheduling, the definition of the DSP
+     parts and realtime IO (Audio, MIDI, OSC...).
+
+   - Common Music (including FOMUS)
+
+     Used as a high level interface for algorithmic composition,
+     im/export from/to MIDI, SVG, Notation and realtime output (using
+     incudine).
+
+   - CLOG
+
+     Used for browser based interactive GUI definitions.
+    
 ** Preparation
     - Open a terminal and issue
       #+BEGIN_SRC sh

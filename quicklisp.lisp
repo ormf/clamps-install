@@ -1760,6 +1760,7 @@ the indexes in the header accordingly."
 
 
 (quicklisp-quickstart:install)
+(ql:quickload :ql-util)
 (ql-util:without-prompting
   (ql:add-to-init-file))
 (sb-ext:exit)

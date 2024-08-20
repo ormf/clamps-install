@@ -95,7 +95,7 @@
     can explicitely remove them with the command
 
     #+BEGIN_SRC sh
-      =sh clean.sh=
+      sh clean.sh
     #+END_SRC
 
     Be aware that this command silently and irrevocably removes all
@@ -104,7 +104,7 @@
     - The fresh installation is done with the command
 
       #+BEGIN_SRC sh
-        =sh clamps-install.sh=
+        sh clamps-install.sh
       #+END_SRC
 
       This will take a couple of minutes.

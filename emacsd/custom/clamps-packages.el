@@ -13,7 +13,7 @@
                        sly-named-readtables sly-macrostep)
   "A list of packages to ensure are installed at launch.")
 
-(require 'sly-autoloads)
+;; (require 'sly-autoloads)
 
 (defun clamps-packages-installed-p ()
   (cl-loop for p in clamps-packages

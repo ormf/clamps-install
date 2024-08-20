@@ -40,46 +40,64 @@
 
    - Emacs Configuration
 
-     - =$HOME/.emacs.d=
+     Installing the contents of =emacs.d= of the repository into
+     =$HOME/.emacs.d=
 
-     - =$HOME/.emacs.d/init.el=
+   - Miscellaneous config files
 
-     - =$HOME/.emacs.d/custom/=
+     It will copy the following files from the repo into the user's
+     =$HOME= folder:
 
+     =incudinerc= to =$HOME/.incudinerc=
 
-     =$HOME/init.el= the initialization file of emacs, creates the
-     .emacs.d/custom folders which contains some emacs packages not
-     available as official packages.
+     =cminit.lisp= to =$HOME/.cminit.lisp=
 
    - Quicklisp
 
-   the following Quicklisp Packages:
-
-
+     Quicklisp will be installed into its default location
+     =$HOME/quicklisp=
    
+   - Local Quicklisp Packages
 
+     The following local Quicklisp Packages will be downloaded and
+     installed:
+
+     =$HOME/quicklisp/local-projects/incudine=
+   
+     =$HOME/quicklisp/local-projects/cm=
+
+     =$HOME/quicklisp/local-projects/fomus=
+   
+     =$HOME/quicklisp/local-projects/ats-cuda=
    
 *** Preparation
-    This installation method installs everything necessary to run
-    clamps in Emacs. It will overwrite the following files and
-    folders:
 
-    - $HOME/.incudinerc
+    IMPORTANT NOTE: Before installation make sure, the files and
+    folders mentioned in [[Fresh install]] are backed up and the orginal
+    files are removed as they will be overwritten without warning!
+    
+    - Open a terminal and issue
+      #+BEGIN_SRC sh
+        cd /tmp
+        git clone https://github.com/ormf/clamps-install.git
+        cd clamps-install
+      #+END_SRC
 
-    - $HOME/.emacs.d
+    - To make sure the files don't exist in their defalut location you
+      can remove all files which will be overwritten without warning
+      with the command
 
-    - $HOME/.sbclrc
+      =sh clean.sh=
 
-    - $HOME/.cminit.lisp
+    - The fresh installation is done with the command
 
+      =sh clamps-install.sh=
 
-    Before installation
-   
-     - Open a terminal and issue
-       #+BEGIN_SRC sh
-         cd /tmp
-         git clone https://github.com/ormf/clamps-install.git
-         cd clamps-install
-         sh clamps-install
-       #+END_SRC
+      This will take a couple of minutes. If everything worked, Emacs
+      should be started at the end of the process and should show a
+      window split in half with a Common Lisp REPL in the lower half.
+
+*** Installing
+    
+    =sh clamps-install=
 

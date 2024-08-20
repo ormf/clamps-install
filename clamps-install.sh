@@ -3,8 +3,8 @@ pushd .
 mkdir -p $HOME/.emacs.d/
 echo "copying emacsd to ~/.emacs.d/"
 cp -Rv emacsd/* $HOME/.emacs.d/
-echo "copying sbclrc to ~/.sbclrc"
-cp -f sbclrc ~/.sbclrc
+# echo "copying sbclrc to ~/.sbclrc"
+# cp -f sbclrc ~/.sbclrc
 echo "copying cminit.lisp to ~/.cminit.lisp"
 cp -f cminit.lisp ~/.cminit.lisp
 echo "copying incudinerc to ~/.incudinerc"

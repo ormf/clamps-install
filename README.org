@@ -13,8 +13,6 @@
 #+LATEX_HEADER: \setmainfont[Scale=0.9]{Calibri}
 #+LATEX_HEADER: \setsansfont[Scale=0.9]{Calibri}[Scale=MatchLowercase]
 #+LATEX_HEADER: \setmonofont[Scale=0.7]{DejaVu Sans Mono}[Scale=MatchLowercase]
-#+TITLE: README.org
-
 
 * clamps-install
 
@@ -36,17 +34,20 @@
 ** Fresh install
 
    This installation method installs everything necessary to run
-   clamps in Emacs. It will install the following things:
+   clamps in Emacs.
+
+   The automated process explained in [[Preparation]] will install the
+   following:
 
    - Emacs Configuration
 
-     Installing the contents of =emacs.d= of the repository into
+     Installs the contents of =emacs.d= of the repository into
      =$HOME/.emacs.d=
 
    - Miscellaneous config files
 
-     It will copy the following files from the repo into the user's
-     =$HOME= folder:
+     Copies the following files from the repo into the user's =$HOME=
+     folder:
 
      =incudinerc= to =$HOME/.incudinerc=
 
@@ -72,9 +73,10 @@
    
 *** Preparation
 
-    IMPORTANT NOTE: Before installation make sure, the files and
-    folders mentioned in [[Fresh install]] are backed up and the orginal
-    files are removed as they will be overwritten without warning!
+    IMPORTANT NOTE: Before calling the installation command, make
+    sure, the files and folders affected by the installation,
+    mentioned in [[Fresh install]] are backed up and the original files
+    are removed as they will be overwritten without warning!
     
     - Open a terminal and issue
       #+BEGIN_SRC sh
@@ -83,19 +85,28 @@
         cd clamps-install
       #+END_SRC
 
-    - To make sure the files don't exist in their defalut location you
-      can remove all files which will be overwritten without warning
-      with the command
+*** Installation commands
+
+    - To make sure the files don't exist in their default location,
+      you can explicitely remove all files and folders (re)created by
+      the installation with the command
 
       =sh clean.sh=
+
+      Make sure to do a backup of any of the files and folders
+      affected by the installation if you made any changes or have
+      custom configuration files and folders, especially concerning
+      =$HOME/quicklisp= and $HOME/.emacs.d=.
 
     - The fresh installation is done with the command
 
       =sh clamps-install.sh=
 
-      This will take a couple of minutes. If everything worked, Emacs
-      should be started at the end of the process and should show a
-      window split in half with a Common Lisp REPL in the lower half.
+      This will take a couple of minutes.
+
+      If everything worked without errors, Emacs should be started at
+      the end of the process and should show a window split in half
+      with a Common Lisp REPL in the lower half.
 
 *** Installing
     

@@ -9,7 +9,7 @@
 
 (defvar clamps-packages
   '(rainbow-delimiters paredit company company-fuzzy eldoc wdired
-                       magit sly-repl-ansi-color sly-autoload sly-quicklisp
+                       magit sly-repl-ansi-color sly-autoloads sly-quicklisp
                        sly-named-readtables sly-macrostep)
   "A list of packages to ensure are installed at launch.")
 

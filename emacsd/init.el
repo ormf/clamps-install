@@ -25,7 +25,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(deeper-blue))
  '(package-selected-packages
-   '(magit sly-repl-ansi-color sly-autoload sly-quicklisp sly-named-readtables sly-macrostep rainbow-delimiters paredit company)))
+   '(magit sly-repl-ansi-color sly-autoloads sly-quicklisp sly-named-readtables sly-macrostep rainbow-delimiters paredit company)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

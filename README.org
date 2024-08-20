@@ -18,136 +18,136 @@
 
   Scripts for the installation of [[https://github.com/ormf/clamps][clamps]].
 
-* Linux Installation
-** Dependencies
-   Please download the following programs using the package manager
-   of your Linux Distribution.
+** Linux Installation
+*** Dependencies
+    Please download the following programs using the package manager
+    of your Linux Distribution.
 
-   - Gnu Emacs
+    - Gnu Emacs
 
-   - Jack
+    - Jack
 
-   - SBCL
+    - SBCL
 
-   - LilyPond (optional)
+    - LilyPond (optional)
 
-   - Inkscape (optional)
+    - Inkscape (optional)
      
-** Fresh install
+*** Fresh install
 
-   This installation method explained below installs everything
-   necessary to run clamps in Emacs:
+    This installation method explained below installs everything
+    necessary to run clamps in Emacs:
 
-   - Emacs Configuration
+    - Emacs Configuration
 
-     Installs the contents of =emacs.d= of the repository into
-     =$HOME/.emacs.d=
+      Installs the contents of =emacs.d= of the repository into
+      =$HOME/.emacs.d=
 
-   - Miscellaneous config files
+    - Miscellaneous config files
 
-     Copies the following files from the repo into the user's =$HOME=
-     folder:
+      Copies the following files from the repo into the user's =$HOME=
+      folder:
 
-     =incudinerc= to =$HOME/.incudinerc=
+      =incudinerc= to =$HOME/.incudinerc=
 
-     =cminit.lisp= to =$HOME/.cminit.lisp=
+      =cminit.lisp= to =$HOME/.cminit.lisp=
 
-   - Quicklisp
+    - Quicklisp
 
-     Quicklisp will be installed into its default location
-     =$HOME/quicklisp=
+      Quicklisp will be installed into its default location
+      =$HOME/quicklisp=
    
-   - Local Quicklisp Packages
+    - Local Quicklisp Packages
 
-     The following local Quicklisp Packages will be downloaded and
-     installed:
+      The following local Quicklisp Packages will be downloaded and
+      installed:
 
-     =$HOME/quicklisp/local-projects/incudine=
+      =$HOME/quicklisp/local-projects/incudine=
    
-     =$HOME/quicklisp/local-projects/cm=
+      =$HOME/quicklisp/local-projects/cm=
 
-     =$HOME/quicklisp/local-projects/fomus=
+      =$HOME/quicklisp/local-projects/fomus=
    
-     =$HOME/quicklisp/local-projects/ats-cuda=
+      =$HOME/quicklisp/local-projects/ats-cuda=
 
-     =$HOME/quicklisp/local-projects/clamps=
+      =$HOME/quicklisp/local-projects/clamps=
 
-*** Preparation
+**** Preparation
 
-    - Open a terminal and issue
-      #+BEGIN_SRC sh
-        cd /tmp
-        git clone https://github.com/ormf/clamps-install.git
-        cd clamps-install
-      #+END_SRC
+     - Open a terminal and issue
+       #+BEGIN_SRC sh
+         cd /tmp
+         git clone https://github.com/ormf/clamps-install.git
+         cd clamps-install
+       #+END_SRC
 
-*** Installation commands
+**** Installation commands
 
-    IMPORTANT NOTE: Before calling the installation command, make
-    sure, the files and folders affected by the installation mentioned
-    above are backed up and moved out of the way as the installation
-    will abort in case any of the files/folders exist.
+     IMPORTANT NOTE: Before calling the installation command, make
+     sure, the files and folders affected by the installation mentioned
+     above are backed up and moved out of the way as the installation
+     will abort in case any of the files/folders exist.
 
-    If you are sure, the files and folders can be removed safely, you
-    can explicitely remove them with the command
+     If you are sure, the files and folders can be removed safely, you
+     can explicitely remove them with the command
 
-    #+BEGIN_SRC sh
-      sh clean.sh
-    #+END_SRC
+     #+BEGIN_SRC sh
+       sh clean.sh
+     #+END_SRC
 
-    Be aware that this command silently and irrevocably removes all
-    files and folders mentioned in [[Fresh install]] without warning.
+     Be aware that this command silently and irrevocably removes all
+     files and folders mentioned in [[Fresh install]] without warning.
 
-    - The fresh installation is done with the command
+     - The fresh installation is done with the command
 
-      #+BEGIN_SRC sh
-        sh clamps-install.sh
-      #+END_SRC
+       #+BEGIN_SRC sh
+         sh clamps-install.sh
+       #+END_SRC
 
-      This will take a couple of minutes.
+       This will take a couple of minutes.
 
-      If everything worked without errors, Emacs should be started at
-      the end of the process and should show a window split in half
-      with a Common Lisp REPL in the lower half.
+       If everything worked without errors, Emacs should be started at
+       the end of the process and should show a window split in half
+       with a Common Lisp REPL in the lower half.
 
-*** Inkscape customization
+**** Inkscape customization
 
-    To install the Inkscape extension for integration with clamps,
-    issue the following additional commands in a terminal:
+     To install the Inkscape extension for integration with clamps,
+     issue the following additional commands in a terminal:
     
-    #+BEGIN_SRC sh
-      cd /tmp/clamps-install
-      cp inkscape-plugin/* $HOME/.config/inkscape/extensions
-    #+END_SRC
+     #+BEGIN_SRC sh
+       cd /tmp/clamps-install
+       cp inkscape-plugin/* $HOME/.config/inkscape/extensions
+     #+END_SRC
 
-    After a restart of Inkscape, there should be an entry called "Play
-    Selection" in the "Extensions" Menu of Inkscape.
+     After a restart of Inkscape, there should be an entry called "Play
+     Selection" in the "Extensions" Menu of Inkscape.
 
-*** Testing the Installation
+**** Testing the Installation
 
-    - Start jackd (e.g. using qjackctl) until it is showing "active"
-      or "running".
+     - Start jackd (e.g. using qjackctl) until it is showing "active"
+       or "running".
 
-    - Start Emacs and input the following in the REPL:
+     - Start Emacs and input the following in the REPL:
 
-    #+BEGIN_SRC lisp
-      cl-user> (ql:quickload :clamps)
-    #+END_SRC
+     #+BEGIN_SRC lisp
+       cl-user> (ql:quickload :clamps)
+     #+END_SRC
 
-    This command will take a couple of minutes at the first time as
-    all required packages have to get downloaded and compiled.
+     This command will take a couple of minutes at the first time as
+     all required packages have to get downloaded and compiled.
 
-    If everything worked without errors, issuing the following
-    command should first initialize the midi ports, start dsp
-    processing and the GUI server.
+     If everything worked without errors, issuing the following
+     command should first initialize the midi ports, start dsp
+     processing and the GUI server.
 
-    #+BEGIN_SRC lisp
-      cl-user> (clamps)
-    #+END_SRC
+     #+BEGIN_SRC lisp
+       cl-user> (clamps)
+     #+END_SRC
 
-    If that worked as well, use the following command to play a Flute
-    Middle C using the outputs of Jack.
+     If that worked as well, use the following command to play a Flute
+     Middle C using the outputs of Jack.
 
-    #+BEGIN_SRC lisp
-      cl-user> (output (new sfz))
-    #+END_SRC
+     #+BEGIN_SRC lisp
+       cl-user> (output (new sfz))
+     #+END_SRC

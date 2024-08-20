@@ -20,6 +20,7 @@
 
   scripts for the installation of clamps
 
+* Linux Installation
 ** Dependencies
     Please download the following programs using the package manager
     of your Linux Distribution.

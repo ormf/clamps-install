@@ -36,17 +36,22 @@
     - Inkscape (optional)     
 *** Fresh install
 
-    This installation method explained below installs everything
-    necessary to run clamps in Emacs:
+    This installation method installs everything necessary to run
+    clamps in Emacs. For an installation into a system already running
+    Emacs/sbcl/quicklisp, see Installation into a working Lisp setup
+    below.
+
+    Using the command for a fresh install automates the following
+    steps:
 
     - Emacs Configuration
 
-      Installs the contents of =emacs.d= of the repository into
+      Install the contents of =emacs.d= of the repository into
       =$HOME/.emacs.d=
 
     - Miscellaneous config files
 
-      Copies the following files from the repo into the user's =$HOME=
+      Copy the following files from the repo into the user's =$HOME=
       folder:
 
       =incudinerc= to =$HOME/.incudinerc=
@@ -56,7 +61,8 @@
     - Quicklisp
 
       Quicklisp will be installed into its default location
-      =$HOME/quicklisp=
+      =$HOME/quicklisp= and the file =$HOME/.sbclrc= updated to always
+      load quicklisp on sbcl startup.
    
     - Local Quicklisp Packages
 
@@ -97,7 +103,7 @@
      #+END_SRC
 
      Be aware that this command silently and irrevocably removes all
-     files and folders mentioned in [[Fresh install]] without warning!
+     files and folders without warning!
 
      - The fresh installation is done with the command
 

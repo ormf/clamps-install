@@ -29,11 +29,11 @@
 
     - SBCL
 
+    - git
+
     - LilyPond (optional)
 
-    - Inkscape (optional)
-     
-    - git
+    - Inkscape (optional)     
 *** Fresh install
 
     This installation method explained below installs everything

@@ -9,3 +9,8 @@
   (error () (sb-ext:restrict-compiler-policy 'debug)))
 
 (sb-ext:restrict-compiler-policy 'safety)
+
+;;; (push #p"/home/orm/.emacs.d/elpa/" ASDF:*CENTRAL-REGISTRY*)
+;;; (push #p"/home/orm/.emacs.d/elpa/sly-asdf-20221119.2235/" ASDF:*CENTRAL-REGISTRY*)
+;;; (asdf:require-system :slynk)
+;;; (asdf:require-system :slynk-asdf)

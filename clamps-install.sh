@@ -1,4 +1,5 @@
 #!/bin/bash
+pushd .
 mkdir -p $HOME/.emacs.d/
 echo "copying emacsd to ~/.emacs.d/"
 cp -Rv emacsd/* $HOME/.emacs.d/
@@ -10,8 +11,11 @@ echo "copying incudinerc to ~/.incudinerc"
 cp -f incudinerc ~/.incudinerc
 mkdir -p $HOME/.config/common-lisp
 cd $HOME/.config/common-lisp
-echo "downloading cltl2 to ~/.config/common-lisp/cltl2-docs"
-git clone https://github.com/ormf/cltl2-docs
+if [ ! -d "cltl2-docs" ]; then
+    echo "downloading cltl2 to ~/.config/common-lisp/cltl2-docs"
+    git clone https://github.com/ormf/cltl2-docs
+fi
+popd
 sbcl --load quicklisp.lisp
 cd $HOME/quicklisp/local-projects
 echo "downloading incudine..."

@@ -72,7 +72,9 @@
      =$HOME/quicklisp/local-projects/fomus=
    
      =$HOME/quicklisp/local-projects/ats-cuda=
-   
+
+     =$HOME/quicklisp/local-projects/clamps=
+
 *** Preparation
 
     IMPORTANT NOTE: Before calling the installation command, make

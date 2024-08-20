@@ -77,11 +77,6 @@
 
 *** Preparation
 
-    IMPORTANT NOTE: Before calling the installation command, make
-    sure, the files and folders affected by the installation mentioned
-    above are backed up and the original files are removed as they
-    will be overwritten without warning!
-    
     - Open a terminal and issue
       #+BEGIN_SRC sh
         cd /tmp
@@ -91,16 +86,18 @@
 
 *** Installation commands
 
-    - To make sure the files don't exist in their default location,
-      you can explicitely remove all files and folders (re)created by
-      the installation with the command
+    IMPORTANT NOTE: Before calling the installation command, make
+    sure, the files and folders affected by the installation mentioned
+    above are backed up and moved out of the way as the installation
+    will abort in case any of the files/folders exist.
+
+    If you are sure, the files and folders can be removed safely, you
+    can explicitely remove them with the command
 
       =sh clean.sh=
 
-      Make sure to do a backup of any of the files and folders
-      affected by the installation if you made any changes or have
-      custom configuration files and folders, especially concerning
-      =$HOME/quicklisp= and =$HOME/.emacs.d=.
+    Be aware that this command silently and irrevocably removes all
+    files and folders mentioned in [[Fresh install]] without warning.
 
     - The fresh installation is done with the command
 

@@ -33,6 +33,7 @@
 
     - Inkscape (optional)
      
+    - git
 *** Fresh install
 
     This installation method explained below installs everything
@@ -109,7 +110,6 @@
        If everything worked without errors, Emacs should be started at
        the end of the process and should show a window split in half
        with a Common Lisp REPL in the lower half.
-
 **** Inkscape customization
 
      To install the Inkscape extension for integration with clamps,

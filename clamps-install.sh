@@ -31,3 +31,5 @@ echo "downloading ats-cuda..."
 git clone https://github.com/ormf/ats-cuda
 echo "downloading clamps..."
 git clone https://github.com/ormf/clamps
+emacs -batch -l $HOME/.emacs.d/init.el
+emacs &

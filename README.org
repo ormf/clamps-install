@@ -18,7 +18,7 @@
 
 * clamps-install
 
-  scripts for the installation of clamps
+  Scripts for the installation of [[https:github.com/ormf/clamps][clamps]].
 
 * Linux Installation
 ** Dependencies

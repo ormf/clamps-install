@@ -79,8 +79,8 @@
 
     IMPORTANT NOTE: Before calling the installation command, make
     sure, the files and folders affected by the installation,
-    mentioned in [[Fresh install]] are backed up and the original files
-    are removed as they will be overwritten without warning!
+    mentioned above are backed up and the original files are removed
+    as they will be overwritten without warning!
     
     - Open a terminal and issue
       #+BEGIN_SRC sh

@@ -32,31 +32,53 @@
    - Jack
 
    - SBCL
+     
+** Fresh install
+   This installation method installs everything necessary to run
+   clamps in Emacs. It will install the following things:
+
+   - Emacs Configuration
+
+     - =$HOME/.emacs.d=
+
+     - =$HOME/.emacs.d/init.el=
+
+     - =$HOME/init.el=
+
+
+     =$HOME/init.el= the initialization file of emacs, creates the
+     .emacs.d/custom folders which contains some emacs packages not
+     available as official packages.
 
    - Quicklisp
-     
-** Dependencies
 
-   - Incudine
+   the following Quicklisp Packages:
 
-     Used for sample accurate scheduling, the definition of the DSP
-     parts and realtime IO (Audio, MIDI, OSC...).
 
-   - Common Music (including FOMUS)
+   
 
-     Used as a high level interface for algorithmic composition,
-     im/export from/to MIDI, SVG, Notation and realtime output (using
-     incudine).
+   
+*** Preparation
+    This installation method installs everything necessary to run
+    clamps in Emacs. It will overwrite the following files and
+    folders:
 
-   - CLOG
+    - $HOME/.incudinerc
 
-     Used for browser based interactive GUI definitions.
-    
-** Preparation
-    - Open a terminal and issue
-      #+BEGIN_SRC sh
-        cd /tmp
-        git clone https://github.com/ormf/clamps-install.git
-        cd clamps-install
-      #+END_SRC
+    - $HOME/.emacs.d
+
+    - $HOME/.sbclrc
+
+    - $HOME/.cminit.lisp
+
+
+    Before installation
+   
+     - Open a terminal and issue
+       #+BEGIN_SRC sh
+         cd /tmp
+         git clone https://github.com/ormf/clamps-install.git
+         cd clamps-install
+         sh clamps-install
+       #+END_SRC
 

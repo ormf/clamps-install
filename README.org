@@ -96,7 +96,7 @@
      #+END_SRC
 
      Be aware that this command silently and irrevocably removes all
-     files and folders mentioned in [[Fresh install]] without warning.
+     files and folders mentioned in [[Fresh install]] without warning!
 
      - The fresh installation is done with the command
 

@@ -138,8 +138,8 @@
      all required packages have to get downloaded and compiled.
 
      If everything worked without errors, issuing the following
-     command should first initialize the midi ports, start dsp
-     processing and the GUI server.
+     command should initialize the midi ports, start dsp processing
+     and the GUI server.
 
      #+BEGIN_SRC lisp
        cl-user> (clamps)

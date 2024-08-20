@@ -10,6 +10,7 @@
 (server-start)
 (require 'recentf)
 (require 'company-anywhere)
+(require 'igrep)
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)

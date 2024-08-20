@@ -1,31 +1,42 @@
-(require 'package)
-;; (require 'melpa)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(package-initialize)
+(add-to-list 'load-path "~/.emacs.d/custom/")
+(add-to-list 'load-path "~/.emacs.d/custom/company-anywhere")
+(require 'clamps-packages)
+
+(fset 'yes-or-no-p 'y-or-n-p)
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+(scroll-bar-mode 1)
+;;; start emacs server for emacsclient
+(server-start)
 (require 'recentf)
-;;;(require 'company-anywhere)
-(setq url-http-attempt-keepalives nil)
+(require 'company-anywhere)
 
-(defvar clamps-packages
-  '(rainbow-delimiters paredit company company-fuzzy eldoc wdired igrep lilypond-mode)
-  "A list of packages to ensure are installed at launch.")
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
 
-(defun clamps-packages-installed-p ()
-  (loop for p in prelude-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+(load "common-lisp-config.el")
 
-(unless (prelude-packages-installed-p)
-  ;; check for new packages (package versions)
-  (message "%s" "Emacs is now refreshing its package database for Clamps...")
-  (package-refresh-contents)
-  (message "%s" " done.")
-  ;; install the missing packages
-  (dolist (p clamps-packages)
-    (when (not (package-installed-p p))
-      (package-install p))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(deeper-blue))
+ '(package-selected-packages
+   '(magit sly-repl-ansi-color sly-autoload sly-quicklisp sly-named-readtables sly-macrostep rainbow-delimiters paredit company)))
 
-(provide 'clamps-packages)
-
-;;; browse-cltl2
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "yellow" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "dark gray" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "deep pink" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "green yellow" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "deep sky blue" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "yellow1" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "gold3" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "orange3" :inherit rainbow-delimiters-base-face))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "DarkOrange4" :inherit rainbow-delimiters-base-face)))))

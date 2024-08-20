@@ -1,8 +1,3 @@
-;;;; This is the original quicklisp.lisp file with the change that it
-;;;; is adapted for first installation by actually performing the
-;;;; quicklisp installation and adding it to the init-file at the end,
-;;;; so use with care.
-;;;;
 ;;;;
 ;;;; This is quicklisp.lisp, the quickstart file for Quicklisp. To use
 ;;;; it, start Lisp, then (load "quicklisp.lisp")
@@ -374,6 +369,7 @@
   (declare (ignorable fun))
   (let ((qlqs-cmucl:*gc-verbose* nil))
     (call-next-method)))
+
 
 ;;;
 ;;; Low-level networking implementations
@@ -1756,12 +1752,6 @@ the indexes in the header accordingly."
            (initial-install :client-url client-url
                             :dist-url dist-url))))))
 
-;;; (write-string *after-load-message*)
+(write-string *after-load-message*)
 
-
-(quicklisp-quickstart:install)
-(ql:quickload :ql-util)
-(ql-util:without-prompting
-  (ql:add-to-init-file))
-(sb-ext:exit)
 ;;; End of quicklisp.lisp

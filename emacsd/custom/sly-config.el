@@ -26,6 +26,11 @@
    (define-key sly-mode-map (kbd "C-c M-.") 'incudine-rt-start)
    (define-key sly-mode-map (kbd "C-c t") 'test-midi)))
 
+(eval-after-load 'paredit
+       '(progn
+          (define-key paredit-mode-map (kbd "RET") nil)
+          (define-key paredit-mode-map (kbd "C-j") 'paredit-newline)))
+
 (setq sly-enable-evaluate-in-emacs t)
 
 (defun std-incudine-hush ()

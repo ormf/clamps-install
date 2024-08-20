@@ -25,11 +25,13 @@
 
    - Gnu Emacs
 
-   - LilyPond (optional)
-
    - Jack
 
    - SBCL
+
+   - LilyPond (optional)
+
+   - Inkscape (optional)
      
 ** Fresh install
 
@@ -96,7 +98,7 @@
       Make sure to do a backup of any of the files and folders
       affected by the installation if you made any changes or have
       custom configuration files and folders, especially concerning
-      =$HOME/quicklisp= and $HOME/.emacs.d=.
+      =$HOME/quicklisp= and =$HOME/.emacs.d=.
 
     - The fresh installation is done with the command
 
@@ -108,7 +110,17 @@
       the end of the process and should show a window split in half
       with a Common Lisp REPL in the lower half.
 
-*** Installing
+*** Inkscape customization
+
+    To install the Inkscape extension for integration with clamps,
+    issue the following additional commands in a terminal:
     
-    =sh clamps-install=
+    - Open a terminal and issue
+      #+BEGIN_SRC sh
+        cd /tmp/clamps-install
+        cp inkscape-plugin/* $HOME/.config/inkscape/extensions
+      #+END_SRC
+
+      After a restart of Inkscape, there should be an entry called
+      "Play Selection" in the "Extensions" Menu of Inkscape.
 

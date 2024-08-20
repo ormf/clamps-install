@@ -155,7 +155,7 @@
      Middle C for 1 second using the outputs of Jack.
 
      #+BEGIN_SRC lisp
-       cl-user> (output (new sfz))
+       clamps> (output (new sfz))
      #+END_SRC
 
 ** Apple OSX Installation

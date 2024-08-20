@@ -124,3 +124,31 @@
       After a restart of Inkscape, there should be an entry called
       "Play Selection" in the "Extensions" Menu of Inkscape.
 
+*** Testing the Installation
+
+    - Start jackd (e.g. using qjackctl) until it is showing "active"
+      or "running".
+
+    - Start Emacs and input the following in the REPL:
+
+    #+BEGIN_SRC lisp
+      cl-user> (ql:quickload :clamps)
+    #+END_SRC
+
+    This command will take a couple of minutes at the first time as
+    all required packages have to get downloaded and compiled.
+
+    If everything worked without errors, issuing the following
+    command should first initialize the midi ports, start dsp
+    processing and the GUI server.
+
+    #+BEGIN_SRC lisp
+      cl-user> (clamps)
+    #+END_SRC
+
+    If that worked as well, use the following command to play a Flute
+    Middle C using the outputs of Jack.
+
+    #+BEGIN_SRC lisp
+      cl-user> (output (new sfz))
+    #+END_SRC

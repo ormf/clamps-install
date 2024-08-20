@@ -14,9 +14,9 @@
   "A list of packages to ensure are installed at launch.")
 
 (defun clamps-packages-installed-p ()
-  (loop for p in clamps-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+  (cl-loop for p in clamps-packages
+           when (not (package-installed-p p)) do (return nil)
+           finally (return t)))
 
 (unless (clamps-packages-installed-p)
   ;; check for new packages (package versions)

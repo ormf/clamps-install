@@ -1759,8 +1759,8 @@ the indexes in the header accordingly."
 ;;; (write-string *after-load-message*)
 
 
-(setf ql-util::*do-not-prompt* t)
 (quicklisp-quickstart:install)
-(ql:add-to-init-file)
+(ql-util:without-prompting
+  (ql:add-to-init-file))
 (sb-ext:exit)
 ;;; End of quicklisp.lisp

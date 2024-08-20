@@ -15,7 +15,7 @@
 
 (defun clamps-packages-installed-p ()
   (cl-loop for p in clamps-packages
-           when (not (package-installed-p p)) do (return nil)
+           when (not (package-installed-p p)) do (cl-return nil)
            finally (cl-return t)))
 
 (unless (clamps-packages-installed-p)

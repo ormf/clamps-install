@@ -23,10 +23,11 @@ echo "copying incudinerc to ~/.incudinerc"
 cp -f incudinerc ~/.incudinerc
 mkdir -p $HOME/.config/common-lisp
 cd $HOME/.config/common-lisp
-if [ ! -d "cltl2-docs" ]; then
-    echo "downloading cltl2 to ~/.config/common-lisp/cltl2-docs"
+if [ ! -d "cltl2" ]; then
+    echo "downloading cltl2 to ~/.config/common-lisp/cltl2"
     git clone https://github.com/ormf/cltl2-docs
 fi
+mv cltl2-docs cltl2
 popd
 if [ -d $HOME/quicklisp ]; then
     echo "$HOME/quicklisp exists, aborting"

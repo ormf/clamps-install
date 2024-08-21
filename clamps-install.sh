@@ -5,8 +5,8 @@ if [ -d $HOME/.emacs.d ]; then
     exit 1
 fi
 mkdir -p $HOME/.emacs.d/
-echo "copying emacsd to ~/.emacs.d/"
-cp -Rv emacsd/* $HOME/.emacs.d/
+echo "copying emacs.d to ~/.emacs.d/"
+cp -Rv emacs.d/* $HOME/.emacs.d/
 # echo "copying sbclrc to ~/.sbclrc"
 # cp -f sbclrc ~/.sbclrc
 if [ -d $HOME/.cminit.lisp ]; then

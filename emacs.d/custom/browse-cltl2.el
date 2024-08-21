@@ -148,7 +148,7 @@
  http://www.cs.cmu.edu/afs/cs.cmu.edu/project/ai-repository/ai/html/cltl/
  Note the / at the end.")
 
-(defcustom *cltl2-local-file-pos* "/usr/local/share/doc/cltl/"
+(defcustom *cltl2-local-file-pos* (expand-file-name "~/.config/common-lisp/cltl2/" t)
  "A directory where the CLtl2 can be found. Note that this assumes
  to be the top-level of the directory structure which should be the
  same as in the hypertext version as provided by the CMU AI Repository.
@@ -357,7 +357,7 @@ Will not do anything if url-show-status is nil."
      (setq entry-val
 	   (list (read-from-minibuffer
 		  (concat "CLtL2-Entry to lookup (default " 
-			  (symbol-near-point) "):")
+			  (symbol-near-point) "): ")
 		  nil nil nil
 		  '*browse-cltl2-history*)))
      (setq minibuffer-history-minimum-string-length ol-hist-val)
@@ -402,7 +402,7 @@ Will not do anything if url-show-status is nil."
    (goto-char (point-min))
 
    ; search for entry
-   (do ((point (re-search-forward 
+   (cl-do ((point (re-search-forward 
                  *cltl2-search-regexpr* 
 		 nil t)
 	       (re-search-forward 
@@ -411,7 +411,7 @@ Will not do anything if url-show-status is nil."
        ; until we can't find anymore
        ((null point)); (format "Index-preparation done."))
      ; put found entry in hash-table
-     (cl-puthash 
+     (puthash 
       (cltl2-prepare-get-entry-name)
       (cltl2-prepare-get-entry-url)
       *browse-cltl2-ht*))))

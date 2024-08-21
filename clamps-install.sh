@@ -38,7 +38,7 @@ if [ -d $HOME/quicklisp ]; then
                  --eval '(ql-util:without-prompting (ql:add-to-init-file))'
         sbcl --noinform --non-interactive --eval '(ql:quickload :clhs)'
         sbcl --noinform --non-interactive --eval '(ql:quickload :clhs)'
-        sbcl --noinform --non-interactive --eval '(progn (ql:quickload :clhs) (clhs:install-clhs-use-local))'
+        cp $HOME/quicklisp/dists/quicklisp/software/clhs-*/clhs-use-local.el $HOME/quicklisp/
         cd $HOME/quicklisp/local-projects
         echo "downloading incudine..."
         git clone https://github.com/titola/incudine.git

@@ -2,6 +2,8 @@
 (load "sly-config.el")
 (load "cl-font-lock-add-ons.el")
 
+(require 'browse-cltl2)
+
 (defun join-next-line ()
   (interactive)
   (forward-line)

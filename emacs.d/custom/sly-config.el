@@ -24,7 +24,9 @@
    (define-key sly-mode-map (kbd "C-.") 'incudine-hush)
    (define-key sly-mode-map (kbd "C-c C-.") 'incudine-rt-stop)
    (define-key sly-mode-map (kbd "C-c M-.") 'incudine-rt-start)
-   (define-key sly-mode-map (kbd "C-c t") 'test-midi)))
+   (define-key sly-mode-map (kbd "C-c t") 'test-midi)
+   (define-key sly-mode-map (kbd "C-c C-d l") 'cltl2-view-function-definition)
+   (define-key sly-mode-map (kbd "C-c C-d h") 'hyperspec-lookup)))
 
 (eval-after-load 'paredit
        '(progn
@@ -97,7 +99,9 @@
    (define-key sly-mrepl-mode-map (kbd "C-.") 'incudine-hush)
    (define-key sly-mrepl-mode-map (kbd "C-c C-.") 'incudine-rt-stop)
    (define-key sly-mrepl-mode-map (kbd "C-c M-.") 'incudine-rt-start)
-   (define-key sly-mrepl-mode-map (kbd "C-c t") 'test-midi)))
+   (define-key sly-mrepl-mode-map (kbd "C-c t") 'test-midi)
+   (define-key sly-mrepl-mode-map (kbd "C-c C-d l") 'cltl2-view-function-definition)
+   (define-key sly-mrpel-mode-map (kbd "C-c C-d h") 'hyperspec-lookup)))
 
 (add-to-list 'load-path "~/quicklisp/local-projects/clamps/extra/elisp")
 (require 'cm)

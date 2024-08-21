@@ -104,7 +104,7 @@
 (load "clamps.el")
 (load "cm-dict.el")
 (load "clamps-dict.el")
-
+(load "~/quicklisp/clhs-use-local.el" t)
 (sly)
 
 ;; ======== End SLY ============================================================

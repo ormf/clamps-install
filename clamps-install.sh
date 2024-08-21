@@ -35,7 +35,8 @@ if [ -d $HOME/quicklisp ]; then
         sbcl --noinform --non-interactive --load quicklisp.lisp --eval \
              '(quicklisp-quickstart:install :path "~/quicklisp/")' && \
             sbcl --noinform --non-interactive --load ~/quicklisp/setup.lisp --eval \
-                 '(ql-util:without-prompting (ql:add-to-init-file))'
+                 '(ql-util:without-prompting (ql:add-to-init-file))' && \
+            sbcl --noinfom --non-interactive --eval (ql:quickload "clhs")
         cd $HOME/quicklisp/local-projects
         echo "downloading incudine..."
         git clone https://github.com/titola/incudine.git

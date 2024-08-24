@@ -34,6 +34,8 @@
     - LilyPond (optional)
 
     - Inkscape (optional)     
+
+    - Evince (optional)
 *** Fresh install
 
     This installation method installs everything necessary to run
@@ -157,5 +159,29 @@
      #+BEGIN_SRC lisp
        clamps> (output (new sfz))
      #+END_SRC
+
+**** Testing Lilypond
+
+     To test the lilypond configuration, enter the following into the
+     REPL:
+
+     #+BEGIN_SRC lisp
+       clamps> (events (new sfz :time 0) "/tmp/test.ly")
+     #+END_SRC
+
+     If the evince pdf viewer pops up with the display of a Middle c
+     quarter note, the lilypond configuration is working.
+
+***** Troubleshooting the lilypond configuration
+
+      - make sure, the programs =/usr/bin/lilypond= and
+        =/usr/bin/evince= exist, otherwise install them at these
+        locations or edit the file =~/.fomus= to reflect their install
+        locations on the right had side of the following lines in that
+        file:
+
+        =:lilypond-exe "/usr/bin/lilypond"=
+
+        =:lilypond-view-exe "/usr/bin/evince"=
 
 ** Apple OSX Installation

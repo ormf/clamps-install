@@ -15,6 +15,12 @@ if [ -d $HOME/.cminit.lisp ]; then
 fi
 echo "copying cminit.lisp to ~/.cminit.lisp"
 cp -f cminit.lisp ~/.cminit.lisp
+if [ -d $HOME/.fomus ]; then
+    echo "$HOME/.fomus exists, aborting"
+    exit 1
+fi
+echo "copying fomus to ~/.fomus"
+cp -f fomus ~/.fomus
 if [ -d $HOME/.incudinerc ]; then
     echo "$HOME/.incudinerc exists, aborting"
     exit 1

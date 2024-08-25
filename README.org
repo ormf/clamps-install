@@ -20,15 +20,21 @@
 
 ** Linux Installation
 *** Dependencies
-    Below are the dependencies for clamps on Linux. These dependencies
-    are *not* using pipewire! Adapt the jack packages accordingly if
-    your installation uses pipewire.
+    Below are the dependencies for clamps on Linux.
 **** Debian/Ubuntu
+     *IMPORTANT NOTE:* These dependencies are /not/ using pipewire in
+     the audio configuration! Check what audio system your
+     installation uses and adapt the jack packages accordingly if your
+     installation uses pipewire.
      #+BEGIN_SRC sh
      sudo apt update && sudo apt install jackd2 qjackctl pulseaudio-module-jack a2jmidid emacs inkscape python3-pip sbcl git lilypond
      #+END_SRC
 **** Arch Linux
-     #+BEGIN_SRC sh
+     *IMPORTANT NOTE:* These dependencies are /not/ using pipewire in
+     the audio configuration! Check what audio system your
+     installation uses and adapt the jack packages accordingly if your
+     installation uses pipewire.
+      #+BEGIN_SRC sh
      sudo pacman -y && sudo pacman -Sy emacs jack2 pulseaudio-jack a2jmidid sbcl git lilypond inkscape python-pip
      #+END_SRC
 **** Other Linux distributions

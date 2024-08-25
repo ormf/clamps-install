@@ -206,6 +206,10 @@
 
      =incudinerc= to =$HOME/.incudinerc=
 
+     =sbclrc= to =$HOME/.sbclrc=
+     
+     =fomus-linux= or =fomus-osx= to =$HOME/.fomus=
+
      =cminit.lisp= to =$HOME/.cminit.lisp=
 
    - Quicklisp
@@ -286,9 +290,9 @@
 
      - =$HOME/.incudinerc=
 
-     - =$HOME/.fomus=
-
      - =$HOME/.sbclrc=
+
+     - =$HOME/.fomus=
 
      - =$HOME/.cminit.lisp=
 

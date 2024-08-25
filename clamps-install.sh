@@ -85,6 +85,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     emacs -batch -l $HOME/.emacs.d/init.el
     emacs &
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    /Applications/Emacs.app/Contents/MacOS/Meacs -batch -l $HOME/.emacs.d/init.el
+    /Applications/Emacs.app/Contents/MacOS/Emacs -batch -l $HOME/.emacs.d/init.el
     open -a Emacs.app
 fi

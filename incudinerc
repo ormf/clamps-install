@@ -13,6 +13,7 @@
 ;; expression. Used only if the dynamic linker fails to search a library
 ;; (see CFFI:*FOREIGN-LIBRARY-DIRECTORIES*)
 (setq *foreign-library-directories* nil)
+#+darwin (setq *foreign-header-file-directories* (list (pathname "/opt/homebrew/include")))
 
 ;;;--------------------[ RT and NRT priorities ]--------------------
 

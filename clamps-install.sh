@@ -1,17 +1,23 @@
 #!/bin/bash
+#
+# Installation script for a clamps installation with
+# sbcl/emacs/sly/quicklisp setup.
+# 
+#
+pushd .
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    ./pip3 install --update pip
-    ./pip3 install python-osc
+    pip3 install --update pip
+    pip3 install python-osc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     echo "installing python-osc into Inkscape."
     cd /Applications/Inkscape.app/Contents/Frameworks/Python.framework/Versions/Current/bin
     ./python3 -m pip --update pip
     ./python3 -m pip install python-osc
 fi
+cd /tmp/clamps-install
 echo "copying inkscape extension to ~/.config/inkscape"
 mkdir -p $HOME/.config/inkscape/extensions/
 cp inkscape-play-selection/* $HOME/.config/inkscape/extensions/
-pushd .
 if [ -d $HOME/.emacs.d ]; then
     echo "$HOME/.emacs.d exists, aborting"
     exit 1
@@ -33,6 +39,17 @@ if [ -d $HOME/.incudinerc ]; then
 fi
 echo "copying incudinerc to ~/.incudinerc"
 cp -f incudinerc ~/.incudinerc
+if [ -d $HOME/.fomus ]; then
+    echo "$HOME/.fomus exists, aborting"
+    exit 1
+fi
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo "copying fomus-linux to ~/.fomus"
+    cp -f fomus-linux ~/.fomus
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "copying fomus-osx to ~/.fomus"
+    cp -f fomus-osx ~/.fomus
+fi
 mkdir -p $HOME/.config/common-lisp
 cd $HOME/.config/common-lisp
 if [ ! -d "cltl2" ]; then
@@ -68,5 +85,5 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     emacs -batch -l $HOME/.emacs.d/init.el
     emacs &
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    /Applications/Emacs.app/Contents/Resources/MacOS/Emacs -batch -l $HOME/.emacs.d/init.el
-    /Applications/Emacs.app/Contents/Resources/MacOS/Emacs&
+    open -a Emacs.app --args -batch -l $HOME/.emacs.d/init.el
+    open -a Emacs.app &

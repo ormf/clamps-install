@@ -17,8 +17,8 @@
 * clamps-install
 
   Scripts for the installation of [[https://github.com/ormf/clamps][clamps]] on Linux or OSX.  The
-  Preparation is different for Linux or OSX. After the Preperation,
-  the Install script is the same for both Operating Systems.
+  Preparation is different for [[Preparation on Gnu/Linux][Linux]] or [[Preperation on Apple OSX][OSX]]. After the Preparation,
+  the [[Fresh Installation][Install script]] is the same for both Operating Systems.
 
 ** Preparation
 *** Preparation on Gnu/Linux
@@ -188,7 +188,7 @@
 ** Fresh Installation (Linux and OSX)
    This installation method installs everything necessary to run
    clamps in Emacs. For an installation into a system already running
-   Emacs/sbcl/quicklisp, see "Installation into a working Lisp setup"
+   Emacs/sbcl/quicklisp, see [[Installation into a working Lisp Setup]]
    below.
 
    Using the command for a fresh install automates the following
@@ -265,7 +265,43 @@
       If everything worked without errors, Emacs should be started at
       the end of the process and should show a window split in half
       with a Common Lisp REPL in the lower half.
-*** Testing the Installation
+** Installation into a working Lisp Setup
+   There is no straightforward way to install into a working Lisp
+   Setup, as it is unclear, whether incudine has been
+   installed/configured, etc. For the installation, it is assumed that
+   emacs, sly, sbcl and quicklisp have already been installed on the
+   system, otherwise install the required packages.
+
+   Then follow these steps:
+
+   - Move the following packages out of the way in case they exist:
+
+     - $HOME/quicklisp/local-projects/incudine
+     - $HOME/quicklisp/local-projects/clamps
+     - $HOME/quicklisp/local-projects/ats-cuda
+     - $HOME/quicklisp/local-projects/
+
+   - Move the following files/folders out of the way in case they
+     exist:
+
+     - =$HOME/.incudinerc=
+
+     - =$HOME/.fomus=
+
+     - =$HOME/.sbclrc=
+
+     - =$HOME/.cminit.lisp=
+
+     - =$HOME/.emacs.d=
+
+   - Then issue the following command in a Terminal:
+
+     =cd /tmp/clamps-install && sh clamps-shallow-install.sh=
+
+   - Merge the emacs configuration in ~/emacs.d/init.el with your old
+     configuration according to your preferences.
+     
+** Testing the Installation
 
     - Start jackd (e.g. using qjackctl) until it is showing "active"
       or "running".

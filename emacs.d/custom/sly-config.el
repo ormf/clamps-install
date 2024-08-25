@@ -3,11 +3,15 @@
 (require 'sly)
 (require 'sly-autoloads)
 
-(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq inferior-lisp-program
+      (cl-case system-type
+       ('gnu/linux "/usr/bin/sbcl")
+       ('darwin "/opt/homebrew/bin/sbcl")))
+
 ;;; (setq inferior-lisp-program "/usr/local/bin/cm-all")
 
 (setq sly-lisp-implementations
-      '((sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)
+      `((sbcl (,inferior-lisp-program) :coding-system utf-8-unix)
         (clamps ("/usr/local/bin/clamps") :coding-system utf-8-unix)))
 
 (setq sly-use-autodoc-mode t)

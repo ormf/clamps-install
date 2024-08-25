@@ -20,8 +20,21 @@
 
 ** Linux Installation
 *** Dependencies
-    Please download the following programs using the package manager
-    of your Linux Distribution.
+    Below are the dependencies for clamps on Linux. These dependencies
+    are *not* using pipewire! Adapt the jack packages accordingly if
+    your installation uses pipewire.
+**** Debian/Ubuntu
+     #+BEGIN_SRC sh
+     sudo apt update && sudo apt install jackd2 qjackctl pulseaudio-module-jack a2jmidid emacs inkscape python3-pip sbcl git lilypond
+     #+END_SRC
+**** Arch Linux
+     #+BEGIN_SRC sh
+     sudo pacman -y && sudo pacman -Sy emacs jack2 pulseaudio-jack a2jmidid sbcl git lilypond inkscape python-pip
+     #+END_SRC
+**** Other Linux distributions
+     Make sure you have installed the following programs using the
+     package manager of your Linux Distribution or compile them from
+     scratch:
 
     - Gnu Emacs
 
@@ -33,9 +46,11 @@
 
     - LilyPond (optional)
 
-    - Inkscape (optional)     
+    - Inkscape (optional)
 
-    - Evince (optional)
+    - python3-pip (optional, called python-pip on Arch Linux)
+
+     
 *** Fresh install
 
     This installation method installs everything necessary to run
@@ -159,29 +174,131 @@
      #+BEGIN_SRC lisp
        clamps> (output (new sfz))
      #+END_SRC
-
-**** Testing Lilypond
-
-     To test the lilypond configuration, enter the following into the
-     REPL:
+*** Post Installation
+**** Testing Lilypond output
+     With clamps running, evaluate the following command in the REPL:
 
      #+BEGIN_SRC lisp
-       clamps> (events (new sfz :time 0) "/tmp/test.ly")
+       clamps> (events (new sfz :time 0) "/tmp/test.ly)
      #+END_SRC
 
-     If the evince pdf viewer pops up with the display of a Middle c
-     quarter note, the lilypond configuration is working.
+     If the pdf viewer opens after a while displaying a Middle C
+     quarter note in a staff system, the configuration works.
+**** Testing the Inkscape Playing extension
 
-***** Troubleshooting the lilypond configuration
-
-      - make sure, the programs =/usr/bin/lilypond= and
-        =/usr/bin/evince= exist, otherwise install them at these
-        locations or edit the file =~/.fomus= to reflect their install
-        locations on the right had side of the following lines in that
-        file:
-
-        =:lilypond-exe "/usr/bin/lilypond"=
-
-        =:lilypond-view-exe "/usr/bin/evince"=
+     - Open Inkscape and check, whether the "Extensions" Menu shows
+       the entry "Play Selection"
 
 ** Apple OSX Installation
+*** Prerequisites
+    - [[https://brew.sh/][Brew]]
+
+      Install Brew by downloading Homebrew-<version>.pkg from this
+      page (Listed under "Assets") and installing it by doubleclicking
+      the downloaded .pkg file:
+
+      [[https://github.com/Homebrew/brew/releases/latest]]
+
+    - Emacs
+
+      Download GNU Emacs by clicking on the "Download" button on this
+      page:
+
+      https://emacsformacosx.com/
+
+      and follow the installation instructions. Make sure to put the
+      "Emacs" application into the "Applications folder of your Mac.
+    
+    - Inkscape
+
+      Download Inkscape from this page
+      
+      https://inkscape.org/release/1.3.2/mac-os-x/
+
+      and follow the installation instructions.
+
+      IMPORTANT NOTE: Make sure to put the installed application into
+      the "Applications" folder on your Mac!
+
+    - Jack and Qjackctl
+
+      Download the latest jack package from here:
+
+      https://jackaudio.org/downloads/
+
+      Use the "Universal Installer"
+
+      When installing, make sure to put the "Qjackctl" application
+      into the "Applications" folder of your Mac.
+
+*** Installation of Clamps
+
+**** Preparation
+     - Open a terminal and issue
+       #+BEGIN_SRC sh
+         cd /tmp
+         git clone https://github.com/ormf/clamps-install.git
+         cd clamps-install
+       #+END_SRC
+
+     IMPORTANT NOTE: Before calling the installation command, make
+     sure, the files and folders affected by the installation
+     mentioned above are backed up and moved out of the way as the
+     installation will abort in case any of the files/folders exist.
+
+     If you are sure, the files and folders can be removed safely, you
+     can explicitely remove them with the command
+
+     #+BEGIN_SRC sh
+       sh clean-osx.sh
+     #+END_SRC
+
+    - Start the clamps installation by issuing the following command
+      in the terminal:
+    
+      =sh clamps-install-osc.sh=
+
+      After some minutes, the process in the terminal prints the
+      message "installation successful".
+
+    - Start Jack using the "Qjackctl" application in the Application
+      directory. Make sure, jack is up and running!
+    
+    - Start the Emacs Application from the Application directory
+
+     #+BEGIN_SRC lisp
+       cl-user> (ql:quickload :clamps)
+     #+END_SRC
+
+     This command will take a couple of minutes at the first time as
+     all required packages have to get downloaded and compiled.
+
+     If everything worked without errors, issuing the following
+     command should initialize the midi ports, start dsp processing
+     and the GUI server.
+
+     #+BEGIN_SRC lisp
+       cl-user> (clamps)
+     #+END_SRC
+
+     If that worked as well, use the following command to play a Flute
+     Middle C for 1 second using the outputs of Jack.
+
+     #+BEGIN_SRC lisp
+       clamps> (output (new sfz))
+     #+END_SRC
+      
+*** Post Installation
+**** Testing Lilypond output
+     With clamps running, evaluate the following command in the REPL:
+
+     #+BEGIN_SRC lisp
+       clamps> (events (new sfz :time 0) "/tmp/test.ly)
+     #+END_SRC
+
+     If the pdf viewer opens after a while displaying a Middle C
+     quarter note in a staff system, the configuration works.
+**** Testing the Inkscape Playing extension
+
+     - Open Inkscape and check, whether the "Extensions" Menu shows
+       the entry "Play Selection"

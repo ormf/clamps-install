@@ -1,4 +1,16 @@
 #!/bin/bash
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    ./pip3 install --update pip
+    ./pip3 install python-osc
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "installing python-osc into Inkscape."
+    cd /Applications/Inkscape.app/Contents/Frameworks/Python.framework/Versions/Current/bin
+    ./python3 -m pip --update pip
+    ./python3 -m pip install python-osc
+fi
+echo "copying inkscape extension to ~/.config/inkscape"
+mkdir -p $HOME/.config/inkscape/extensions/
+cp inkscape-play-selection/* $HOME/.config/inkscape/extensions/
 pushd .
 if [ -d $HOME/.emacs.d ]; then
     echo "$HOME/.emacs.d exists, aborting"
@@ -15,12 +27,6 @@ if [ -d $HOME/.cminit.lisp ]; then
 fi
 echo "copying cminit.lisp to ~/.cminit.lisp"
 cp -f cminit.lisp ~/.cminit.lisp
-if [ -d $HOME/.fomus ]; then
-    echo "$HOME/.fomus exists, aborting"
-    exit 1
-fi
-echo "copying fomus to ~/.fomus"
-cp -f fomus ~/.fomus
 if [ -d $HOME/.incudinerc ]; then
     echo "$HOME/.incudinerc exists, aborting"
     exit 1
@@ -58,5 +64,9 @@ if [ -d $HOME/quicklisp ]; then
         echo "downloading clamps..."
         git clone https://github.com/ormf/clamps
 fi
-emacs -batch -l $HOME/.emacs.d/init.el
-emacs &
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    emacs -batch -l $HOME/.emacs.d/init.el
+    emacs &
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    /Applications/Emacs.app/Contents/Resources/MacOS/Emacs -batch -l $HOME/.emacs.d/init.el
+    /Applications/Emacs.app/Contents/Resources/MacOS/Emacs&

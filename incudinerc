@@ -43,14 +43,11 @@
 ;; :portaudio and :portaudio-jack are the same, but with the last
 ;; it is possible to set the Jack client name.
 ;;
-(setq *audio-driver*
-      #+linux :jack
-      #-linux :portaudio
-      #-linux :porttime)
+(setq *audio-driver* :jack)
 
 ;; Realtime block size in frames.
-;;; (setq *rt-block-size* 1)
-(setq *rt-block-size* 32)
+(setq *rt-block-size* 1)
+;;; (setq *rt-block-size* 32)
 
 (setq *sample-rate* 44100)
 (setq *client-name* "incudine")

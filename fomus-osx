@@ -4,8 +4,10 @@
 :lilypond-opts '("--pdf")
 :lilypond-out-ext "pdf"
 
-:lilypond-view-exe "open -a Preview.app"
-:cmn-view-exe "open -a Preview.app"
+:lilypond-view-exe "/usr/bin/open"
+:lilypond-view-opts '("-a" "Preview.app")
+:cmn-view-exe "/usr/bin/open"
+:cmn-view-opts '("-a" "Preview.app")
 
 :verbose 1
 :min-tuplet-dur 1

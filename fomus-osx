@@ -1,4 +1,4 @@
-:output '((:data) (:lilypond :process t :view nil))
+:output '((:data) (:lilypond :process t :view t))
 
 :lilypond-exe "/opt/homebrew/bin/lilypond"
 :lilypond-opts '("--pdf")

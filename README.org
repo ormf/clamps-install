@@ -16,293 +16,296 @@
 
 * clamps-install
 
-  Scripts for the installation of [[https://github.com/ormf/clamps][clamps]] on Linux or OSX.
+  Scripts for the installation of [[https://github.com/ormf/clamps][clamps]] on Linux or OSX.  The
+  Preparation is different for Linux or OSX. After the Preperation,
+  the Install script is the same for both Operating Systems.
 
-** Linux Installation
-*** Dependencies
-    Below are the dependencies for clamps on Linux.
-**** Debian/Ubuntu
-     *IMPORTANT NOTE:* These dependencies are /not/ using pipewire in
-     the audio configuration! Check what audio system your
-     installation uses and adapt the jack packages accordingly if your
-     installation uses pipewire.
-     #+BEGIN_SRC sh
-     sudo apt update && sudo apt install jackd2 qjackctl pulseaudio-module-jack a2jmidid emacs inkscape python3-pip sbcl git lilypond
-     #+END_SRC
-**** Arch Linux
-     *IMPORTANT NOTE:* These dependencies are /not/ using pipewire in
-     the audio configuration! Check what audio system your
-     installation uses and adapt the jack packages accordingly if your
-     installation uses pipewire.
+** Preparation
+*** Preparation on Gnu/Linux
+**** Dependencies
+     Below are the dependencies for clamps on Linux.
+***** Debian/Ubuntu
+      *IMPORTANT NOTE:* These dependencies are /not/ using pipewire in
+      the audio configuration! Check what audio system your
+      installation uses and adapt the jack packages accordingly if your
+      installation uses pipewire.
       #+BEGIN_SRC sh
-     sudo pacman -y && sudo pacman -Sy emacs jack2 pulseaudio-jack a2jmidid sbcl git lilypond inkscape python-pip
-     #+END_SRC
-**** Other Linux distributions
-     Make sure you have installed the following programs using the
-     package manager of your Linux Distribution or compile them from
-     scratch:
-
-    - Gnu Emacs
-
-    - Jack
-
-    - SBCL
-
-    - git
-
-    - LilyPond (optional)
-
-    - Inkscape (optional)
-
-    - pip for python3 (optional, called python-pip on Arch Linux)
-*** Fresh install
-
-    This installation method installs everything necessary to run
-    clamps in Emacs. For an installation into a system already running
-    Emacs/sbcl/quicklisp, see "Installation into a working Lisp setup"
-    below.
-
-    Using the command for a fresh install automates the following
-    steps:
-
-    - Emacs Configuration
-
-      Install the contents of =emacs.d= of the repository into
-      =$HOME/.emacs.d=
-
-    - Miscellaneous config files
-
-      Copy the following files from the repo into the user's =$HOME=
-      folder:
-
-      =incudinerc= to =$HOME/.incudinerc=
-
-      =cminit.lisp= to =$HOME/.cminit.lisp=
-
-    - Quicklisp
-
-      Quicklisp will be installed into its default location
-      =$HOME/quicklisp= and the file =$HOME/.sbclrc= updated to always
-      load quicklisp on sbcl startup.
-   
-    - Local Quicklisp Packages
-
-      The following local Quicklisp Packages will be downloaded and
-      installed:
-
-      =$HOME/quicklisp/local-projects/incudine=
-   
-      =$HOME/quicklisp/local-projects/cm=
-
-      =$HOME/quicklisp/local-projects/fomus=
-   
-      =$HOME/quicklisp/local-projects/ats-cuda=
-
-      =$HOME/quicklisp/local-projects/clamps=
-
-**** Preparation
-
-     - Open a terminal and issue
+      sudo apt update && sudo apt install jackd2 qjackctl pulseaudio-module-jack a2jmidid emacs inkscape python3-pip sbcl git lilypond
+      #+END_SRC
+***** Arch Linux
+      *IMPORTANT NOTE:* These dependencies are /not/ using pipewire in
+      the audio configuration! Check what audio system your
+      installation uses and adapt the jack packages accordingly if your
+      installation uses pipewire.
        #+BEGIN_SRC sh
-         cd /tmp
-         git clone https://github.com/ormf/clamps-install.git
-         cd clamps-install
-       #+END_SRC
+      sudo pacman -y && sudo pacman -Sy emacs jack2 pulseaudio-jack a2jmidid sbcl git lilypond inkscape python-pip
+      #+END_SRC
+***** Other Linux distributions
+      Make sure you have installed the following programs using the
+      package manager of your Linux Distribution or compile them from
+      scratch:
 
-**** Installation commands
+     - Gnu Emacs
 
-     IMPORTANT NOTE: Before calling the installation command, make
-     sure, the files and folders affected by the installation mentioned
-     above are backed up and moved out of the way as the installation
-     will abort in case any of the files/folders exist.
+     - Jack
 
-     If you are sure, the files and folders can be removed safely, you
-     can explicitely remove them with the command
+     - SBCL
 
-     #+BEGIN_SRC sh
-       sh clean.sh
-     #+END_SRC
+     - git
 
-     Be aware that this command silently and irrevocably removes all
-     files and folders without warning!
+     - LilyPond (optional)
 
-     - The fresh installation is done with the command
+     - Inkscape (optional)
 
-       #+BEGIN_SRC sh
-         sh clamps-install.sh
-       #+END_SRC
+     - pip for python3 (optional, called python-pip on Arch Linux)
+***** Testing Lilypond output
+      With clamps running, evaluate the following command in the REPL:
 
-       This will take a couple of minutes.
+      #+BEGIN_SRC lisp
+        clamps> (events (new sfz :time 0) "/tmp/test.ly)
+      #+END_SRC
 
-       If everything worked without errors, Emacs should be started at
-       the end of the process and should show a window split in half
-       with a Common Lisp REPL in the lower half.
-**** Inkscape customization
+      If the pdf viewer opens after a while displaying a Middle C
+      quarter note in a staff system, the configuration works.
+***** Testing the Inkscape Playing extension
 
-     To install the Inkscape extension for integration with clamps,
-     issue the following additional commands in a terminal:
+      - Open Inkscape and check, whether the "Extensions" Menu shows
+        the entry "Play Selection"
+
+*** Preperation on Apple OSX
+**** Dependencies/Prerequisites
+     - [[https://brew.sh/][Brew]]
+
+       Install Brew by downloading Homebrew-<version>.pkg from this
+       page (Listed under "Assets") and installing it by doubleclicking
+       the downloaded .pkg file:
+
+       [[https://github.com/Homebrew/brew/releases/latest]]
+
+     - Emacs
+
+       Download GNU Emacs by clicking on the "Download" button on this
+       page:
+
+       https://emacsformacosx.com/
+
+       and follow the installation instructions. Make sure to put the
+       "Emacs" application into the "Applications folder of your Mac.
     
-     #+BEGIN_SRC sh
-       cd /tmp/clamps-install
-       cp inkscape-plugin/* $HOME/.config/inkscape/extensions
-     #+END_SRC
+     - Inkscape
 
-     After a restart of Inkscape, there should be an entry called "Play
-     Selection" in the "Extensions" Menu of Inkscape.
-
-**** Testing the Installation
-
-     - Start jackd (e.g. using qjackctl) until it is showing "active"
-       or "running".
-
-     - Start Emacs and input the following in the REPL:
-
-     #+BEGIN_SRC lisp
-       cl-user> (ql:quickload :clamps)
-     #+END_SRC
-
-     This command will take a couple of minutes at the first time as
-     all required packages have to get downloaded and compiled.
-
-     If everything worked without errors, issuing the following
-     command should initialize the midi ports, start dsp processing
-     and the GUI server.
-
-     #+BEGIN_SRC lisp
-       cl-user> (clamps)
-     #+END_SRC
-
-     If that worked as well, use the following command to play a Flute
-     Middle C for 1 second using the outputs of Jack.
-
-     #+BEGIN_SRC lisp
-       clamps> (output (new sfz))
-     #+END_SRC
-*** Post Installation
-**** Testing Lilypond output
-     With clamps running, evaluate the following command in the REPL:
-
-     #+BEGIN_SRC lisp
-       clamps> (events (new sfz :time 0) "/tmp/test.ly)
-     #+END_SRC
-
-     If the pdf viewer opens after a while displaying a Middle C
-     quarter note in a staff system, the configuration works.
-**** Testing the Inkscape Playing extension
-
-     - Open Inkscape and check, whether the "Extensions" Menu shows
-       the entry "Play Selection"
-
-** Apple OSX Installation
-*** Prerequisites
-    - [[https://brew.sh/][Brew]]
-
-      Install Brew by downloading Homebrew-<version>.pkg from this
-      page (Listed under "Assets") and installing it by doubleclicking
-      the downloaded .pkg file:
-
-      [[https://github.com/Homebrew/brew/releases/latest]]
-
-    - Emacs
-
-      Download GNU Emacs by clicking on the "Download" button on this
-      page:
-
-      https://emacsformacosx.com/
-
-      and follow the installation instructions. Make sure to put the
-      "Emacs" application into the "Applications folder of your Mac.
-    
-    - Inkscape
-
-      Download Inkscape from this page
+       Download Inkscape from this page
       
-      https://inkscape.org/release/1.3.2/mac-os-x/
+       https://inkscape.org/release/1.3.2/mac-os-x/
 
-      and follow the installation instructions.
+       and follow the installation instructions.
 
-      IMPORTANT NOTE: Make sure to put the installed application into
-      the "Applications" folder on your Mac!
+       IMPORTANT NOTE: Make sure to put the installed application into
+       the "Applications" folder on your Mac!
 
-    - Jack and Qjackctl
+     - Jack and Qjackctl
 
-      Download the latest jack package from here:
+       Download the latest jack package from here:
 
-      https://jackaudio.org/downloads/
+       https://jackaudio.org/downloads/
 
-      Use the "Universal Installer"
+       Use the "Universal Installer"
 
-      When installing, make sure to put the "Qjackctl" application
-      into the "Applications" folder of your Mac.
+       When installing, make sure to put the "Qjackctl" application
+       into the "Applications" folder of your Mac.
 
-*** Installation of Clamps
+**** Installation of Clamps
 
-**** Preparation
-     - Open a terminal and issue
-       #+BEGIN_SRC sh
-         cd /tmp
-         git clone https://github.com/ormf/clamps-install.git
-         cd clamps-install
-       #+END_SRC
+***** Preparation
+      - Open a terminal and issue
+        #+BEGIN_SRC sh
+          cd /tmp
+          git clone https://github.com/ormf/clamps-install.git
+          cd clamps-install
+        #+END_SRC
 
-     IMPORTANT NOTE: Before calling the installation command, make
-     sure, the files and folders affected by the installation
-     mentioned above are backed up and moved out of the way as the
-     installation will abort in case any of the files/folders exist.
+      IMPORTANT NOTE: Before calling the installation command, make
+      sure, the files and folders affected by the installation
+      mentioned above are backed up and moved out of the way as the
+      installation will abort in case any of the files/folders exist.
 
-     If you are sure, the files and folders can be removed safely, you
-     can explicitely remove them with the command
+      If you are sure, the files and folders can be removed safely, you
+      can explicitely remove them with the command
 
-     #+BEGIN_SRC sh
-       sh clean-osx.sh
-     #+END_SRC
+      #+BEGIN_SRC sh
+        sh clean-osx.sh
+      #+END_SRC
 
-    - Start the clamps installation by issuing the following command
-      in the terminal:
+     - Start the clamps installation by issuing the following command
+       in the terminal:
     
-      =sh clamps-install-osc.sh=
+       =sh clamps-install-osc.sh=
 
-      After some minutes, the process in the terminal prints the
-      message "installation successful".
+       After some minutes, the process in the terminal prints the
+       message "installation successful".
 
-    - Start Jack using the "Qjackctl" application in the Application
-      directory. Make sure, jack is up and running!
+     - Start Jack using the "Qjackctl" application in the Application
+       directory. Make sure, jack is up and running!
     
-    - Start the Emacs Application from the Application directory
+     - Start the Emacs Application from the Application directory
 
-     #+BEGIN_SRC lisp
-       cl-user> (ql:quickload :clamps)
-     #+END_SRC
+      #+BEGIN_SRC lisp
+        cl-user> (ql:quickload :clamps)
+      #+END_SRC
 
-     This command will take a couple of minutes at the first time as
-     all required packages have to get downloaded and compiled.
+      This command will take a couple of minutes at the first time as
+      all required packages have to get downloaded and compiled.
 
-     If everything worked without errors, issuing the following
-     command should initialize the midi ports, start dsp processing
-     and the GUI server.
+      If everything worked without errors, issuing the following
+      command should initialize the midi ports, start dsp processing
+      and the GUI server.
 
-     #+BEGIN_SRC lisp
-       cl-user> (clamps)
-     #+END_SRC
+      #+BEGIN_SRC lisp
+        cl-user> (clamps)
+      #+END_SRC
 
-     If that worked as well, use the following command to play a Flute
-     Middle C for 1 second using the outputs of Jack.
+      If that worked as well, use the following command to play a Flute
+      Middle C for 1 second using the outputs of Jack.
 
-     #+BEGIN_SRC lisp
-       clamps> (output (new sfz))
-     #+END_SRC
+      #+BEGIN_SRC lisp
+        clamps> (output (new sfz))
+      #+END_SRC
       
-*** Post Installation
-**** Testing Lilypond output
-     With clamps running, evaluate the following command in the REPL:
+**** Post Installation
+***** Testing Lilypond output
+      With clamps running, evaluate the following command in the REPL:
 
-     #+BEGIN_SRC lisp
-       clamps> (events (new sfz :time 0) "/tmp/test.ly)
-     #+END_SRC
+      #+BEGIN_SRC lisp
+        clamps> (events (new sfz :time 0) "/tmp/test.ly)
+      #+END_SRC
 
-     If the pdf viewer opens after a while displaying a Middle C
-     quarter note in a staff system, the configuration works.
-**** Testing the Inkscape Playing extension
+      If the pdf viewer opens after a while displaying a Middle C
+      quarter note in a staff system, the configuration works.
+***** Testing the Inkscape Playing extension
 
-     - Open Inkscape and check, whether the "Extensions" Menu shows
-       the entry "Play Selection"
+      - Open Inkscape and check, whether the "Extensions" Menu shows
+        the entry "Play Selection"
+** Fresh Installation (Linux and OSX)
+   This installation method installs everything necessary to run
+   clamps in Emacs. For an installation into a system already running
+   Emacs/sbcl/quicklisp, see "Installation into a working Lisp setup"
+   below.
+
+   Using the command for a fresh install automates the following
+   steps:
+
+   - Emacs Configuration
+
+     Install the contents of =emacs.d= of the repository into
+     =$HOME/.emacs.d=
+
+   - Miscellaneous config files
+
+     Copy the following files from the repo into the user's =$HOME=
+     folder:
+
+     =incudinerc= to =$HOME/.incudinerc=
+
+     =cminit.lisp= to =$HOME/.cminit.lisp=
+
+   - Quicklisp
+
+     Quicklisp will be installed into its default location
+     =$HOME/quicklisp= and the file =$HOME/.sbclrc= updated to always
+     load quicklisp on sbcl startup.
+   
+   - Local Quicklisp Packages
+
+     The following local Quicklisp Packages will be downloaded and
+     installed:
+
+     =$HOME/quicklisp/local-projects/incudine=
+   
+     =$HOME/quicklisp/local-projects/cm=
+
+     =$HOME/quicklisp/local-projects/fomus=
+   
+     =$HOME/quicklisp/local-projects/ats-cuda=
+
+     =$HOME/quicklisp/local-projects/clamps=
+
+*** Preparation
+
+    - Open a terminal and issue
+      #+BEGIN_SRC sh
+        cd /tmp
+        git clone https://github.com/ormf/clamps-install.git
+        cd clamps-install
+      #+END_SRC
+
+*** Installation commands
+    IMPORTANT NOTE: Before calling the installation command, make
+    sure, the files and folders affected by the installation mentioned
+    above are backed up and moved out of the way as the installation
+    will abort in case any of the files/folders exist.
+
+    If you are sure, the files and folders can be removed safely, you
+    can explicitely remove them with the command
+
+    #+BEGIN_SRC sh
+      sh clean.sh
+    #+END_SRC
+
+    Be aware that this command silently and irrevocably removes all
+    files and folders without warning!
+
+    - The fresh installation is done with the command
+
+      #+BEGIN_SRC sh
+        sh clamps-install.sh
+      #+END_SRC
+
+      This will take a couple of minutes.
+
+      If everything worked without errors, Emacs should be started at
+      the end of the process and should show a window split in half
+      with a Common Lisp REPL in the lower half.
+*** Testing the Installation
+
+    - Start jackd (e.g. using qjackctl) until it is showing "active"
+      or "running".
+
+    - Start Emacs and input the following in the REPL:
+
+    #+BEGIN_SRC lisp
+      cl-user> (ql:quickload :clamps)
+    #+END_SRC
+
+    This command will take a couple of minutes at the first time as
+    all required packages have to get downloaded and compiled.
+
+    If everything worked without errors, issuing the following
+    command should initialize the midi ports, start dsp processing
+    and the GUI server.
+
+    #+BEGIN_SRC lisp
+      cl-user> (clamps)
+    #+END_SRC
+
+    If that worked as well, use the following command to play a Flute
+    Middle C for 1 second using the outputs of Jack.
+
+    #+BEGIN_SRC lisp
+      clamps> (output (new sfz))
+    #+END_SRC
+
+*** Testing Lilypond output
+
+    With clamps running, evaluate the following command in the REPL:
+
+    #+BEGIN_SRC lisp
+      clamps> (events (new sfz :time 0) "/tmp/test.ly)
+    #+END_SRC
+
+    If the pdf viewer opens after a while displaying a Middle C
+    quarter note in a staff system, the configuration works.  Testing
+
+*** Testing the Inkscape Playing extension
+
+    Open Inkscape and check, whether the “Extensions” Menu shows the
+    entry “Play Selection”

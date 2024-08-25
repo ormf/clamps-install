@@ -54,9 +54,7 @@
 
     - Inkscape (optional)
 
-    - python3-pip (optional, called python-pip on Arch Linux)
-
-     
+    - pip for python3 (optional, called python-pip on Arch Linux)
 *** Fresh install
 
     This installation method installs everything necessary to run

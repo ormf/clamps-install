@@ -256,7 +256,7 @@
     #+END_SRC
 
     Be aware that this command silently and irrevocably removes all
-    files and folders without warning!
+    files and folders *including $HOME/quicklisp* without warning!
 
     - The fresh installation is done with the command
 

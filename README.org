@@ -266,9 +266,15 @@
 
       This will take a couple of minutes.
 
+      On OSX you will be prompted for a password during the
+      installation process.
+
       If everything worked without errors, Emacs should be started at
       the end of the process and should show a window split in half
       with a Common Lisp REPL in the lower half.
+
+      Proceed with [[Testing the Installation]].
+
 ** Installation into a working Lisp Setup
    There is no straightforward way to install into a working Lisp
    Setup, as it is unclear, whether incudine has been

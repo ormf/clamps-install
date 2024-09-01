@@ -139,7 +139,7 @@
      - Start the clamps installation by issuing the following command
        in the terminal:
     
-       =sh clamps-install-osc.sh=
+       =./clamps-install.sh=
 
        After some minutes, the process in the terminal prints the
        message "installation successful".

@@ -27,12 +27,12 @@ echo "copying emacs.d to ~/.emacs.d/"
 cp -Rv emacs.d/* $HOME/.emacs.d/
 # echo "copying sbclrc to ~/.sbclrc"
 # cp -f sbclrc ~/.sbclrc
-if [ -d $HOME/.cminit.lisp ]; then
-    echo "$HOME/.cminit.lisp exists, aborting"
+if [ -d $HOME/.clampsinit.lisp ]; then
+    echo "$HOME/.clampsinit.lisp exists, aborting"
     exit 1
 fi
-echo "copying cminit.lisp to ~/.cminit.lisp"
-cp -f cminit.lisp ~/.cminit.lisp
+echo "copying clampsinit.lisp to ~/.clampsinit.lisp"
+cp -f clampsinit.lisp ~/.clampsinit.lisp
 if [ -d $HOME/.incudinerc ]; then
     echo "$HOME/.incudinerc exists, aborting"
     exit 1

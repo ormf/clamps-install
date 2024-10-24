@@ -25,7 +25,7 @@
    (paredit-mode t)
    (define-key sly-mode-map (kbd "C-c C-y") 'sly-mrepl)
    (define-key sly-mode-map (kbd "\C-c\C-dc") 'cm-lookup)
-   (define-key sly-mode-map (kbd "C-.") 'incudine-hush)
+   (define-key sly-mode-map (kbd "C-.") 'clamps-hush)
    (define-key sly-mode-map (kbd "C-c C-.") 'incudine-rt-stop)
    (define-key sly-mode-map (kbd "C-c M-.") 'incudine-rt-start)
    (define-key sly-mode-map (kbd "C-c t") 'test-midi)
@@ -48,12 +48,10 @@
 ;;;    (sly-interactive-eval "(scratch::node-free-all)")
     ))
 
-(defun cm-incudine-hush ()
+(defun clamps-hush ()
+  "call clamps::rts-hush in common lisp"
   (interactive)
-  (progn
-    (sly-interactive-eval "(cm::rts-hush)")
-;;;    (sly-interactive-eval "(scratch::node-free-all)")
-    ))
+  (sly-interactive-eval "(clamps::rts-hush)"))
 
 (defun set-std-incudine-hush ()
   (interactive)

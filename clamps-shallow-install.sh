@@ -5,13 +5,17 @@
 #
 pushd .
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    pip3 install --update pip
-    pip3 install python-osc
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "installing python-osc into Inkscape."
-    cd /Applications/Inkscape.app/Contents/Frameworks/Python.framework/Versions/Current/bin
-    ./python3 -m pip --update pip
-    ./python3 -m pip install python-osc
+    if [ -f "/etc/arch-release" ]; then
+        sudo pacman -S python-osc
+    elif
+        pip3 install --update pip
+        pip3 install python-osc
+    fi
+    elif [[ "$OSTYPE" == "darwin"* ]]; then
+        echo "installing python-osc into Inkscape."
+        cd /Applications/Inkscape.app/Contents/Frameworks/Python.framework/Versions/Current/bin
+        ./python3 -m pip --update pip
+        ./python3 -m pip install python-osc
 fi
 cd /tmp/clamps-install
 echo "copying inkscape extension to ~/.config/inkscape"
@@ -49,10 +53,10 @@ mv cltl2-docs cltl2
 popd
 sbcl --noinform --non-interactive --eval '(ql:quickload :clhs)'
 cp $HOME/quicklisp/dists/quicklisp/software/clhs-*/clhs-use-local.el $HOME/quicklisp/
-if [ -d $HOME/quicklisp/local-projects ]; then
-    echo "$HOME/quicklisp/local-projects exists, aborting"
-    exit 1
-fi
+# if [ -d $HOME/quicklisp/local-projects ]; then
+#     echo "$HOME/quicklisp/local-projects exists, aborting"
+#     exit 1
+# fi
 mkdir -p $HOME/quicklisp/local-projects
 cd $HOME/quicklisp/local-projects
 echo "downloading incudine..."

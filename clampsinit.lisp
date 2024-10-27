@@ -2,9 +2,9 @@
 ;;; paths for soundfiles and sfz files and associations between
 ;;; keywords and sfz files.
 ;;;
-;;; Put this file into your home directory (at "$HOME/.cminit.lisp")
-;;; and adjust as needed. It will be executed each time, cm ist loaded
-;;; into lisp.
+;;; Put this file into your home directory (at
+;;; "$HOME/.clampsinit.lisp") and adjust as needed. It will be
+;;; executed each time, clamps ist loaded into lisp.
 
 (in-package :cl-user)
 

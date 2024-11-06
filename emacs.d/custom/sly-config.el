@@ -19,6 +19,7 @@
 (add-hook
  'lisp-mode-hook
  (lambda ()
+   (sly-mode t)
    (recentf-mode t)
    (company-mode t)
    (rainbow-delimiters-mode t)

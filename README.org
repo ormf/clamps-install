@@ -30,7 +30,7 @@
       installation uses and adapt the jack packages accordingly if your
       installation uses pipewire.
       #+BEGIN_SRC sh
-      sudo apt update && sudo apt install jackd2 qjackctl pulseaudio-module-jack a2jmidid emacs inkscape python3-pip sbcl git lilypond
+      sudo apt update && sudo apt install libjack-jackd2-dev libportmidi-dev libsndfile-dev libfftw3-dev libgsl-dev libfluidsynth-dev liblilv-dev jackd2 qjackctl pulseaudio-module-jack a2jmidid emacs inkscape python3-pip sbcl git lilypond
       #+END_SRC
 ***** Arch Linux
       *IMPORTANT NOTE:* These dependencies are /not/ using pipewire in
@@ -38,7 +38,7 @@
       installation uses and adapt the jack packages accordingly if your
       installation uses pipewire.
        #+BEGIN_SRC sh
-      sudo pacman -y && sudo pacman -Sy emacs jack2 pulseaudio-jack a2jmidid sbcl git lilypond inkscape python-pip
+      sudo pacman -y && sudo pacman -Sy emacs jack2 pulseaudio-jack a2jmidid sbcl git lilypond inkscape python-pip jack2 portmidi libsndfile fftw gsl fluidsynth lilv
       #+END_SRC
 ***** Other Linux distributions
       Make sure you have installed the following programs using the
@@ -58,6 +58,23 @@
      - Inkscape (optional)
 
      - pip for python3 (optional, called python-pip on Arch Linux)
+
+     In addition make sure, you have all incudine dependencies (listed
+     on the incudine website) installed:
+
+     - jack2 library
+
+     - portmidi library
+
+     - libsndfile
+
+     - fftw3 library
+
+     - gsl library
+
+     - fluidsynth library (optional)
+
+     - lilv library (optional)
 ***** Testing Lilypond output
       With clamps running, evaluate the following command in the REPL:
 

@@ -10,7 +10,7 @@
 
 (pushnew :cuda-usocket-osc *features*)
 
-(set-clamps-doc-root "http://localhost:8282/")
+(setf *clamps-doc-root* "http://localhost:8282/")
 
 (export '(*sfz-preset-lookup* *sfz-preset-path* *sfile-path*) 'cl-user)
 

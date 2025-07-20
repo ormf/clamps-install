@@ -15,9 +15,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     ./python3 -m pip install python-osc
 fi
 cd /tmp/clamps-install
-echo "copying inkscape extension to ~/.config/inkscape"
+echo "copying inkscape extension to ~/.config/inkscape and into Inkscape.App Folder."
 mkdir -p $HOME/.config/inkscape/extensions/
 cp inkscape-play-selection/* $HOME/.config/inkscape/extensions/
+sudo cp inkscape-play-selection/* /Applications/Inkscape.app/Contents/Resources/share/inkscape/extensions/
+
 if [ -d $HOME/.emacs.d ]; then
     echo "$HOME/.emacs.d exists, aborting"
     exit 1

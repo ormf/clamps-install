@@ -87,7 +87,7 @@
   (interactive)
   (sly-interactive-eval "(cm::testmidi)"))
 
-(set-cm-incudine-hush)
+(set-clamps-incudine-hush)
 
 (global-set-key "\C-x\C-l" 'sly)
 

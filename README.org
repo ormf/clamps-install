@@ -90,26 +90,18 @@
         the entry "Play Selection"
 
 *** Preperation on Apple OSX
-**** Dependencies/Prerequisites
-     - [[https://brew.sh/][Brew]]
+**** Prerequisites
+***** Emacs
 
-       Install Brew by downloading Homebrew-<version>.pkg from this
-       page (Listed under "Assets") and installing it by doubleclicking
-       the downloaded .pkg file:
+      Download GNU Emacs by clicking on the "Download" button on this
+      page:
 
-       [[https://github.com/Homebrew/brew/releases/latest]]
+      https://emacsformacosx.com/
 
-     - Emacs
-
-       Download GNU Emacs by clicking on the "Download" button on this
-       page:
-
-       https://emacsformacosx.com/
-
-       and follow the installation instructions. Make sure to put the
-       "Emacs" application into the "Applications folder of your Mac.
+      and follow the installation instructions. Make sure to put the
+      "Emacs" application into the "Applications folder of your Mac.
     
-     - Inkscape
+***** Inkscape
 
        Download Inkscape from this page
       
@@ -120,7 +112,7 @@
        IMPORTANT NOTE: Make sure to put the installed application into
        the "Applications" folder on your Mac!
 
-     - Jack and Qjackctl
+***** Jack and Qjackctl
 
        Download the latest jack package from here:
 
@@ -130,6 +122,52 @@
 
        When installing, make sure to put the "Qjackctl" application
        into the "Applications" folder of your Mac.
+     
+***** Add Terminal to the Full Disk Access List in the System Settings of OSX.
+
+      - Go to apple logo in top left corner
+
+
+      - Click on system settings
+
+      - Scroll down and click on Privacy and Security in the left tab
+
+      - Under Privacy Click on Full Disc Access
+     
+**** Dependencies
+     - [[https://brew.sh/][Brew]]
+
+       Install Brew by downloading Homebrew-<version>.pkg from this
+       page (Listed under "Assets") and installing it by doubleclicking
+       the downloaded .pkg file:
+
+       [[https://github.com/Homebrew/brew/releases/latest]]
+
+     - Git
+
+       Install git by typing "brew install git" in a terminal and
+       finish with the retrun key.
+ 
+     - Incudine dependencies:
+
+       Install all incudine dependencies by typing the following lines
+       into a Terminal and press the return key after each line.
+     
+       brew install portmidi
+
+       brew install libsndfile
+
+       brew install gsl
+
+       brew install fftw
+
+       brew install fluidsynth
+
+       brew install lilv
+
+     - libsndfile
+     
+       Install portmidi by typing "brew install libsndfile"
 
 **** Installation of Clamps
 

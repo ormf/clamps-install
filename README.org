@@ -399,7 +399,7 @@
     With clamps running, evaluate the following command in the REPL:
 
     #+BEGIN_SRC lisp
-      clamps> (events (new sfz :time 0) "/tmp/test.ly)
+      clamps> (events (new sfz :time 0) "/tmp/test.ly")
     #+END_SRC
 
     If the pdf viewer opens after a while displaying a Middle C

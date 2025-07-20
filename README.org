@@ -145,34 +145,33 @@
 
      - Git
 
-       Install git by typing "brew install git" in a terminal and
-       finish with the retrun key.
+       After a successful install of brew you can install git by
+       typing
+
+       #+BEGIN_SRC sh
+       brew install git
+       #+END_SRC
+
+       into a [[https://en.wikipedia.org/wiki/Terminal_(macOS)][Terminal]] and finish it with the return key.
  
      - Incudine dependencies:
 
        Install all incudine dependencies by typing the following lines
-       into a Terminal and press the return key after each line.
+       into a [[https://en.wikipedia.org/wiki/Terminal_(macOS)][Terminal]] and press the return key after each line.
      
+       #+BEGIN_SRC sh
        brew install portmidi
-
        brew install libsndfile
-
        brew install gsl
-
        brew install fftw
-
        brew install fluidsynth
-
        brew install lilv
-
-     - libsndfile
-     
-       Install portmidi by typing "brew install libsndfile"
+       #+END_SRC
 
 **** Installation of Clamps
 
 ***** Preparation
-      - Open a terminal and issue
+      - Open a [[https://en.wikipedia.org/wiki/Terminal_(macOS)][Terminal]] and issue
         #+BEGIN_SRC sh
           cd /tmp
           git clone https://github.com/ormf/clamps-install.git
@@ -192,7 +191,7 @@
       #+END_SRC
 
      - Start the clamps installation by issuing the following command
-       in the terminal:
+       in a [[https://en.wikipedia.org/wiki/Terminal_(macOS)][Terminal]]:
     
        =sh clamps-install-osx.sh=
 
@@ -200,7 +199,7 @@
        message "installation successful".
 
      - Start Jack using the "Qjackctl" application in the Application
-       directory. Make sure, jack is up and running!
+       directory. Make sure, jack is up and running before continuing!
     
      - Start the Emacs Application from the Application directory
 
